@@ -1,8 +1,8 @@
-<h1 align="center">HolbertonBnB</h1>
+<h1 align="center">AirBnB</h1>
 <p align="center">An AirBnB clone.</p>
 
 <p align="center">
-  <img src="https://github.com/bdbaraban/AirBnB_clone_v2/blob/master/assets/hbnb_logo.png"
+  <img src="https://github.com/isaacbaccah/AirBnB_clone_v2/blob/master/assets/hbnb_logo.png"
 	    alt="HolbertonBnB logo">
 </p>
 
@@ -14,7 +14,7 @@ clone of AirBnB. The front-end is designed using HTML5/CSS3 and is served using
 Python Flask. The application is configured on a distributed system - two web
 servers and one load balancer - with Nginx and HAProxy.
 
-HolbertonBnB is still in active development, with complete functionality set to
+AirBnB is still in active development, with complete functionality set to
 deploy in the coming month:
 
 * Complete integration of a RESTful API
@@ -22,7 +22,7 @@ deploy in the coming month:
 * Serving of dynamic content using JavaScript
 
 <p align="center">
-  <img src="https://github.com/bdbaraban/AirBnB_clone_v2/blob/master/assets/hbnb_stack.png"
+  <img src="https://github.com/isaacbaccah/AirBnB_clone_v2/blob/master/assets/hbnb_stack.png"
 	    alt="HolbertonBnB stack">
 </p>
 
@@ -47,7 +47,7 @@ https://github.com/bdbaraban/lyft_apprenticeship_application
 
 Nonetheless, allow me to talk a little more about this AirBnB clone. This
 repository is the second iteration of the project. In the first version
-(viewable [here](https://github.com/bdbaraban/AirBnB_clone)), I, together
+(viewable [here](https://github.com/isaacbaccah/AirBnB_clone)), I, together
 with a cohort mate, built up the initial file storage back-end and
 console from scratch. We pair programmed for most all of this version one work.
 
@@ -59,7 +59,7 @@ to build up the database storage engine of the back-end.
 In between each version, I put together an entire CSS-styled HTML web page
 for the project. This front-end development was coded independently, although
 the HTML files I personally wrote are only posted in
-[version one](https://github.com/bdbaraban/AirBnB_clone) (the
+[version one](https://github.com/isaacbaccah/AirBnB_clone) (the
 [web_static](./web_static) folder in this directory was included in the
 fork). Addtionally, all Shell, Puppet, and Fabric deployment scripts/manifests
 were coded myself.
@@ -83,7 +83,7 @@ screenshots are viewable in the README of the [web_flask](./web_flask) directory
 
 ### Classes :cl:
 
-HolbertonBnB supports the following classes:
+AirBnB supports the following classes:
 
 * BaseModel
 * User
@@ -130,12 +130,12 @@ respectively.
 ## Console :computer:
 
 The console is a command line interpreter that permits management of the backend
-of HolbertonBnB. It can be used to handle and manipulate all classes utilized by
+of AirBnB. It can be used to handle and manipulate all classes utilized by
 the application (achieved by calls on the `storage` object defined above).
 
 ### Using the Console
 
-The HolbertonBnB console can be run both interactively and non-interactively.
+The AirBnB console can be run both interactively and non-interactively.
 To run the console in non-interactive mode, pipe any command(s) into an execution
 of the file `console.py` at the command line.
 
@@ -191,7 +191,7 @@ $
 
 ### Console Commands
 
-The HolbertonBnB console supports the following commands:
+The AirBnB console supports the following commands:
 
 #### create
 * Usage: `create <class> <param 1 name>=<param 1 value> <param 2 name>=<param 2 value> ...`
@@ -365,8 +365,6 @@ $ python3 unittest -m tests/test_console.py
 ```
 
 ## Authors :black_nib:
-* **Brennan D Baraban** <[bdbaraban](https://github.com/bdbaraban)>
-* **Samie Azad** <[sazad44](https://github.com/sazad44)>
-* **Andrew Lindburg** <[atlindburg](https://github.com/atlindburg)>
-* **Kevin Yook** <[yook00627](https://github.com/yook00627)>
-* **Miranda Evans** <miranda.r.evans@gmail.com>
+* **Isaac Baccah** <[isaacbaccah](https://github.com/isaacbaccah)>
+* **Michael Dankyira** <[michaeldankyira](https://github.com/michaeldankyira)>
+
