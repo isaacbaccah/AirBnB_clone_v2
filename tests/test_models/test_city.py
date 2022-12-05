@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines unnittests for models/city.py."""
+""" Tests for city model"""
 import os
 import pep8
 import models
@@ -16,16 +16,13 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import sessionmaker
 
 
-class TestCity(unittest.TestCase):
-    """Unittests for testing the City class."""
+class test_City(test_basemodel):
+    """ tests for city model """
 
     @classmethod
     def setUpClass(cls):
-        """City testing setup.
-
-        Temporarily renames any existing file.json.
-        Resets FileStorage objects dictionary.
-        Creates FileStorage, DBStorage, City and State instances for testing.
+        """
+            City tests
         """
         try:
             os.rename("file.json", "tmp")
@@ -45,7 +42,6 @@ class TestCity(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         """City testing teardown.
-
         Restore original file.json.
         Delete the FileStorage, DBStorage, City and State test instances.
         """
@@ -70,6 +66,20 @@ class TestCity(unittest.TestCase):
         p = style.check_files(["models/city.py"])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
+    def test_nullable_attributes(self):
+        """Check nullable."""
+        with self.assertRaises(OperationalError):
+            self.dbstorage._DBStorage__session.add(City(
+                state_id=self.state.id))
+            self.dbstorage._DBStorage__session.commit()
+        self.dbstorage._DBStorage__session.rollback()
+        with self.assertRaises(OperationalError):
+            self.dbstorage._DBStorage__session.add(City(name="San Jose"))
+            self.dbstorage._DBStorage__session.commit()
+        self.dbstorage._DBStorage__session.rollback()
+
+    @unittest.skipIf(type(models.storage) == FileStorage,
+                     "Testing FileStorage")
     def test_docstrings(self):
         """Check for docstrings."""
         self.assertIsNotNone(City.__doc__)
@@ -83,20 +93,6 @@ class TestCity(unittest.TestCase):
         self.assertTrue(hasattr(ct, "__tablename__"))
         self.assertTrue(hasattr(ct, "name"))
         self.assertTrue(hasattr(ct, "state_id"))
-
-    @unittest.skipIf(type(models.storage) == FileStorage,
-                     "Testing FileStorage")
-    def test_nullable_attributes(self):
-        """Check that relevant DBStorage attributes are non-nullable."""
-        with self.assertRaises(OperationalError):
-            self.dbstorage._DBStorage__session.add(City(
-                state_id=self.state.id))
-            self.dbstorage._DBStorage__session.commit()
-        self.dbstorage._DBStorage__session.rollback()
-        with self.assertRaises(OperationalError):
-            self.dbstorage._DBStorage__session.add(City(name="San Jose"))
-            self.dbstorage._DBStorage__session.commit()
-        self.dbstorage._DBStorage__session.rollback()
 
     @unittest.skipIf(type(models.storage) == FileStorage,
                      "Testing FileStorage")

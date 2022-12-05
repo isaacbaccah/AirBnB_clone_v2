@@ -121,20 +121,6 @@ class TestReview(unittest.TestCase):
         """Test initialization."""
         self.assertIsInstance(self.review, Review)
 
-    def test_two_models_are_unique(self):
-        """Test that different Review instances are unique."""
-        us = Review(email="a", password="a")
-        self.assertNotEqual(self.review.id, us.id)
-        self.assertLess(self.review.created_at, us.created_at)
-        self.assertLess(self.review.updated_at, us.updated_at)
-
-    def test_init_args_kwargs(self):
-        """Test initialization with args and kwargs."""
-        dt = datetime.utcnow()
-        st = Review("1", id="5", created_at=dt.isoformat())
-        self.assertEqual(st.id, "5")
-        self.assertEqual(st.created_at, dt)
-
     def test_str(self):
         """Test __str__ representation."""
         s = self.review.__str__()
